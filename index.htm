@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <link rel="icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/a/a7/Cursor_icon_with_shadow.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Space Bar Text</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Stack elements vertically */
+    font-family: arial;
+    position: relative; /* Make body a positioning context */
+  }
+  h2 {
+    margin-bottom: 5px; /* Add space between h3 and h1 */
+    position: absolute; /* Position the h2 absolutely */
+    top: 20px; /* Adjust the top position as needed */
+  }
+  img {
+    position: absolute;
+    top: -10px;
+  }
+</style>
+</head>
+<body>
+<h2>Press <img src="space.png" height="50"> &nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp bar to cycle through texts:</h2>
+<h1 id="text" style="text-align: center;"></h1>
+<script>
+  // Define an array of texts
+  var texts = ["i love your smile", "i love your laugh", "i love your humor", "i love your attitude", "i love your beauty", "i love your skill in gaming", "i love your body", "i love your intelligence", "i love the way you make me happy always", "i love how you have a solution to each problem", "i love your style", "i love your eyes", "i love your kindness", "i love that you can make everyone's day better", "i love your loyalty", "i love your positivity", "i love your honesty", "i love your voice", "i love your skin (not in a weird way)", "i love your height", "i love how you're very tiny", "i love your jealousy", "i love your thoughtfulness", "i love your generosity", "i love your patience", "i love your integrity", "i love your understanding", "i love your supportiveness", "i love your forgiveness", "i love your political views", "i love your obedience", "i love your heavenly presence", "i love your angelic view", "i love your intrests", "i love your thighs", "i love everything about you", "i love you", "i love you", "i love you", "i love you", "why are you still clicking, ive probably texted you atp, go reply to me"];
+  var index = 0;
+  var textElement = document.getElementById("text");
+
+  // Listen for keydown event on the document
+  document.addEventListener("keydown", function(event) {
+    if (event.code === "Space") {
+      createNewText();
+    }
+  });
+
+  // Function to create new text
+  function createNewText() {
+    // Set the text content of the heading element to the current text in the array
+    textElement.textContent = texts[index];
+    // Increment index to get the next text in the array
+    index = (index + 1) % texts.length; // Wrap around to the beginning if index exceeds the length of the array
+  }
+</script>
+</body>
+</html>
